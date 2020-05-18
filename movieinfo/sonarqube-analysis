@@ -1,0 +1,17 @@
+node{
+  stage('SCM Checkout'){
+  git 'https://github.com/c-hari/harirepo/new/master/movieinfo'
+  }
+  
+  stage('compile package')
+  {
+  def mvnhome = toolname:'maven-3',type:'maven'
+  sh "${mvnhome}/bin/mvn package"
+  }
+  stage('sonarqube analysis')
+  {
+  def mvnhome = toolname:'maven-3',type:'maven'
+  sh "${mvnhome}/bin/mvn sonar:sonar"
+  
+  }
+}
