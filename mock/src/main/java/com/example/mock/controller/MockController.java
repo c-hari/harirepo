@@ -27,7 +27,7 @@ public class MockController {
 	public ResponseEntity<String> getFromRestApis(@PathVariable String string)
 
 	{
-		String url="http://localhost:8080/lending/preview/export/{string}";
+		String url="http://mockbean/lending/preview/export/{string}";
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class,string) ;
 
 		return ResponseEntity.ok(response.getBody());
@@ -37,7 +37,7 @@ public class MockController {
 	ResponseEntity<Customer> findById(@PathVariable Integer custId) {
 
 		{
-			String url ="http://localhost:8080/customer/findById/{custId}";
+			String url ="http://mockbean/customer/findById/{custId}";
 			ResponseEntity<Customer> response = restTemplate.getForEntity(url, Customer.class,custId);
 
 			return ResponseEntity.ok(response.getBody());

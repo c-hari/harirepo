@@ -12,10 +12,6 @@ public class MockApplication {
 		SpringApplication.run(MockApplication.class, args);
 		System.out.println("mock class started");
 	}
-	@Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 
 
 }
