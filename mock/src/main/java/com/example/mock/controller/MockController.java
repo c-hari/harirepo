@@ -13,14 +13,11 @@ public class MockController {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	/*@GetMapping("/export")
-	public ResponseEntity<String> getFromRestApi(@RequestParam String string) 
-	
-	{
-		String url="http://localhost:8080/lending/preview/export?s="+string;
-		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class) ;
-		
-		return ResponseEntity.ok(response.getBody());		
+	/*  @GetMapping("/export/{name}")
+	public ResponseEntity<String> getExport(@PathVariable String name) {
+		String url = "http://mockbean/lending/preview/export/{name}";
+		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class, name);
+		return ResponseEntity.ok(response.getBody());
 	}*/
 
 	@GetMapping("/export/{string}")
@@ -28,7 +25,7 @@ public class MockController {
 
 	{
 		String url="http://mockbean/lending/preview/export/{string}";
-		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class,string) ;
+		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class, string) ;
 
 		return ResponseEntity.ok(response.getBody());
 	}
