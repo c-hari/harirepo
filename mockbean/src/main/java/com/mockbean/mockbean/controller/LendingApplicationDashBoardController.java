@@ -17,7 +17,10 @@ public class LendingApplicationDashBoardController {
 	
 	@GetMapping("/export/{s}")
 	public ResponseEntity<String> getExport(@PathVariable String s) {
-		 return new ResponseEntity<String>( service.getData(s),HttpStatusCode.valueOf(200));
+		System.out.println("Received request for " + s);
+		String data = service.getData(s);
+		System.out.println("Sending response for " + data);
+		return ResponseEntity.ok(data);
 		
 		
 	}
